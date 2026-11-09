@@ -17,3 +17,7 @@ No requiere cuenta ni backend. Todavía no incluye sincronización entre disposi
 
 ## Compilación
 Abrir en Android Studio con JDK 17+ y Android SDK 35. La APK se genera en `app/build/outputs/apk/debug/app-debug.apk`. GitHub Actions compila, verifica firma/alineación y prueba instalación y arranque en un emulador Android 14.
+
+
+## Café Zodíaco 2.3.0
+Ilustraciones vectoriales SVG originales integradas directamente en el HTML de la app: medallones zodiacales y cuatro productos de cafetería. No requieren descargas ni conexión a Internet.
