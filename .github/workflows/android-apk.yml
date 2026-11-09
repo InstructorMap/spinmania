@@ -1,4 +1,4 @@
-name: Build Café Zodíaco APK
+name: Build El Oráculo APK
 
 on:
   workflow_dispatch:
@@ -44,7 +44,7 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: cafe-zodiaco-2.3.0-apk
+          name: el-oraculo-1.0.0-apk
           path: app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
       - name: Install and launch on Android 14 emulator
@@ -60,7 +60,7 @@ jobs:
             adb shell am start -n com.spinmania.game/.MainActivity
             for attempt in $(seq 1 15); do
               if adb shell pidof com.spinmania.game >/dev/null 2>&1; then
-                echo "Café Zodíaco process is running."
+                echo "El Oráculo process is running."
                 adb shell dumpsys activity activities | grep -E "mResumedActivity|topResumedActivity" || true
                 exit 0
               fi
