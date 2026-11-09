@@ -17,7 +17,7 @@ for html in root.glob("*.html"):
         if path.startswith(("http:", "https:", "#", "mailto:", "data:")):
             continue
         target = path.split("?")[0].split("#")[0]
-        if target and not (root / target).is_file():
+        if target and not target.endswith("/") and not (root / target).is_file():
             errors.append(f"{html.name}: missing {path}")
     for i, script in enumerate(re.findall(r"<script(?:\\s[^>]*)?>(.*?)</script>", text, re.S | re.I)):
         with tempfile.NamedTemporaryFile(mode="w", suffix=".js", encoding="utf-8") as tmp:
