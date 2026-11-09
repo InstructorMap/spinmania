@@ -2,8 +2,9 @@
 
 Aplicación móvil de Café Zodíaco: una experiencia de cafetería y universo zodiacal, empaquetada para Android mediante WebView.
 
-## Experiencia actual — versión 2.1.0
+## Experiencia actual — versión 2.2.0
 - Identidad visual nocturna con órbitas, planeta central, cielo estrellado animado y microanimaciones.
+- Arte original de mascota, terraza y merienda incrustado en la aplicación (funciona sin conexión).
 - Perfil de los doce signos y bebida astral personalizada.
 - Misión diaria de cinco estrellas con recompensa de polvo estelar.
 - Atlas coleccionable de los doce signos.
