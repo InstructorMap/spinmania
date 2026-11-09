@@ -1,6 +1,9 @@
-EL ORACULO - Paquete visual PNG
+EL ORÁCULO — PAQUETE DE RECURSOS PNG
 
-30 recursos PNG recortados de una lamina ilustrada generada para el juego.
-Carpetas: escenarios, artefactos, personajes, interfaz.
-Incluye rotulos integrados en algunas imagenes.
-Se recomienda usar como assets narrativos y fondos; para botones interactivos, implementar controles accesibles por separado.
+57 recortes PNG a partir de una única lámina ilustrada original de 1536 × 1024.
+Contiene 12 retratos, 36 evoluciones (cría, joven y guardián estelar), 9 escenarios, 3 portadas y 12 elementos de interfaz.
+
+AVISO: estos archivos son recortes de una composición, no ilustraciones individuales en alta resolución. Algunos incluyen rótulos, marcos o elementos vecinos. Las evoluciones son representaciones visuales para prototipo y requerirán arte individual para producción.
+
+Ruta sugerida en GitHub: app/src/main/assets/images/oraculo/
+No se ha subido este paquete al repositorio.
