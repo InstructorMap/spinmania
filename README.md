@@ -2,7 +2,7 @@
 
 Aplicación móvil de Café Zodíaco: una experiencia de cafetería y universo zodiacal, empaquetada para Android mediante WebView.
 
-## Experiencia actual — versión 2.2.0
+## Experiencia actual — versión 2.3.0
 - Identidad visual nocturna con órbitas, planeta central, cielo estrellado animado y microanimaciones.
 - Arte original de mascota, terraza y merienda incrustado en la aplicación (funciona sin conexión).
 - Perfil de los doce signos y bebida astral personalizada.
@@ -20,4 +20,7 @@ Abrir en Android Studio con JDK 17+ y Android SDK 35. La APK se genera en `app/b
 
 
 ## Café Zodíaco 2.3.0
-Ilustraciones vectoriales SVG originales integradas directamente en el HTML de la app: medallones zodiacales y cuatro productos de cafetería. No requieren descargas ni conexión a Internet.
+- Ilustraciones vectoriales SVG originales integradas directamente en el HTML: medallones zodiacales y cuatro productos de cafetería.
+- Ícono Android de marca con recursos adaptativos y compatibilidad con versiones anteriores.
+- Diagnóstico de arranque del emulador Android mejorado.
+- Recursos visuales integrados localmente para funcionar sin conexión.
