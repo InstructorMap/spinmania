@@ -41,6 +41,12 @@ jobs:
         run: |
           "$ANDROID_HOME/build-tools/35.0.0/apksigner" verify --verbose --print-certs app/build/outputs/apk/debug/app-debug.apk
           "$ANDROID_HOME/build-tools/35.0.0/zipalign" -c -v 4 app/build/outputs/apk/debug/app-debug.apk
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: cafe-zodiaco-2.0.0-apk
+          path: app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
       - name: Install and launch on Android 14 emulator
         uses: reactivecircus/android-emulator-runner@v2
         with:
@@ -52,9 +58,3 @@ jobs:
             adb install -r app/build/outputs/apk/debug/app-debug.apk
             adb shell am start -n com.spinmania.game/.MainActivity
             adb shell pidof com.spinmania.game
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: spinmania-debug-apk
-          path: app/build/outputs/apk/debug/app-debug.apk
-          if-no-files-found: error
