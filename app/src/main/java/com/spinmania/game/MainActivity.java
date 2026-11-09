@@ -2,6 +2,7 @@ package com.spinmania.game;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.JavascriptInterface;
@@ -66,6 +67,16 @@ public class MainActivity extends Activity {
     }
 
     public class AndroidBridge {
+        @JavascriptInterface
+        public void openWhatsApp(String text) {
+            if (text == null || text.trim().isEmpty()) return;
+            runOnUiThread(() -> {
+                String url = "https://wa.me/542213642475?text=" + Uri.encode(text);
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(intent);
+            });
+        }
+
         @JavascriptInterface
         public void shareText(String text) {
             if (text == null || text.trim().isEmpty()) return;
