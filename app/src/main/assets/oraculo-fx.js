@@ -15,9 +15,8 @@ for(let i=0;i<stars.length;i++){let s=stars[i];ctx.globalAlpha=.3+.5*Math.abs(Ma
 glow(320,190,190,"#6e4ab822");glow(175,155,120,colorset()+"35");glow(475,160,110,"#8e3ca644");
 ellipse(170,267,117,18,"#bb9aff22");ellipse(472,267,94,17,"#e97bfa25");
 if(loaded){ctx.save();ctx.shadowColor=colorset();ctx.shadowBlur=20;let w=150,h=184;ctx.drawImage(sprite,90,65,w,h);ctx.restore()}else{glow(170,155,70,colorset());ctx.font="76px serif";ctx.textAlign="center";ctx.fillText("✦",170,182)}
-ctx.save();ctx.shadowColor="#e54bdf";ctx.shadowBlur=25;ctx.fillStyle="#342044";ctx.beginPath();ctx.moveTo(473,65);ctx.bezierCurveTo(530,108,540,212,472,250);ctx.bezierCurveTo(399,213,416,100,473,65);ctx.fill();ctx.restore();
-ctx.font="64px serif";ctx.textAlign="center";ctx.fillStyle="#d9a0f2";ctx.fillText("☾",474,182);
-ctx.font="bold 15px Georgia,serif";ctx.fillStyle="#f6dfa6";ctx.fillText("GUARDIÁN",170,290);ctx.fillText("SOMBRA",474,290);
+const foe=state&&state.enemy||{id:"acechador",color:"#a768df",name:"Acechador del Eclipse"};const enemyColor=foe.color||"#a768df";ctx.save();ctx.shadowColor=enemyColor;ctx.shadowBlur=30;ctx.fillStyle="#211a35";ctx.strokeStyle=enemyColor;ctx.lineWidth=4;ctx.beginPath();ctx.moveTo(472,65);ctx.bezierCurveTo(543,105,548,210,472,251);ctx.bezierCurveTo(395,211,402,104,472,65);ctx.fill();ctx.stroke();ctx.restore();ctx.font="69px serif";ctx.textAlign="center";ctx.fillStyle=enemyColor;ctx.fillText(foe.id==="centinela"?"♜":foe.id==="espectro"?"♧":"☾",474,181);ctx.font="13px sans-serif";ctx.fillStyle="#f9d9f5";ctx.fillText(foe.name||"Sombra",474,51);if(state){ctx.fillStyle="#382b42";ctx.fillRect(415,257,115,8);ctx.fillStyle=enemyColor;ctx.fillRect(415,257,115*Math.max(0,state.foe/state.foeMax),8)}
+ctx.font="bold 15px Georgia,serif";ctx.fillStyle="#f6dfa6";ctx.fillText("GUARDIÁN",170,290);ctx.fillText("ENEMIGO",474,290);
 for(let i=particles.length-1;i>=0;i--){let p=particles[i];p.x+=p.vx;p.y+=p.vy;p.life--;ctx.globalAlpha=Math.max(0,p.life/p.max);glow(p.x,p.y,p.size*5,p.color);ellipse(p.x,p.y,p.size,p.size,p.color);if(p.life<=0)particles.splice(i,1)}ctx.globalAlpha=1;
 if(result){ctx.fillStyle="#050817cc";ctx.fillRect(0,108,W,80);ctx.font="bold 32px Georgia,serif";ctx.textAlign="center";ctx.fillStyle=result==="victory"?"#f8d589":"#f5a2b3";ctx.fillText(result==="victory"?"✦ VICTORIA ASTRAL ✦":"EL SELLO RESISTE",320,160)}
 }
