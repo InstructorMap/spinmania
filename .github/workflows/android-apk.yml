@@ -56,5 +56,16 @@ jobs:
           profile: pixel_6
           script: |
             adb install -r app/build/outputs/apk/debug/app-debug.apk
+            adb logcat -c
             adb shell am start -n com.spinmania.game/.MainActivity
-            adb shell pidof com.spinmania.game
+            for attempt in $(seq 1 15); do
+              if adb shell pidof com.spinmania.game >/dev/null 2>&1; then
+                echo "Café Zodíaco process is running."
+                adb shell dumpsys activity activities | grep -E "mResumedActivity|topResumedActivity" || true
+                exit 0
+              fi
+              sleep 2
+            done
+            echo "Application process did not remain active. Capturing Android diagnostics:"
+            adb logcat -d -t 1200
+            exit 1
