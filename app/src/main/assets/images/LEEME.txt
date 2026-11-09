@@ -1,0 +1,6 @@
+EL ORACULO - Paquete visual PNG
+
+30 recursos PNG recortados de una lamina ilustrada generada para el juego.
+Carpetas: escenarios, artefactos, personajes, interfaz.
+Incluye rotulos integrados en algunas imagenes.
+Se recomienda usar como assets narrativos y fondos; para botones interactivos, implementar controles accesibles por separado.
