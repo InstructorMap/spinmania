@@ -3,6 +3,7 @@
   if (window.__cafeBusinessLoaded) return;
   window.__cafeBusinessLoaded = true;
   const KEY = 'cz_business_cart_v1';
+  const WHATSAPP_NUMBER = '542213642475';
   const catalog = [
     {id:'cafe',name:'Cafecito de las estrellas',category:'Cafetería',detail:'Un clásico para acompañar tu momento',icon:'☕'},
     {id:'medialuna',name:'Medialuna lunar',category:'Panadería',detail:'Dorada, suave y recién hecha',icon:'🥐'},
@@ -92,9 +93,8 @@
     if(!name){$('bizError').textContent='Completá tu nombre para identificar el pedido.';$('bizName').focus();return}
     if(mode==='delivery'&&!address){$('bizError').textContent='Indicá la dirección para el delivery.';$('bizAddress').focus();return}
     const message=['☕ PEDIDO — CAFÉ ZODÍACO','Nombre: '+name,phone?'Teléfono: '+phone:'','Modalidad: '+(mode==='delivery'?'Delivery':'Retiro / al paso'),mode==='delivery'?'Dirección: '+address:'','','Detalle:',items,notes?'\nIndicaciones: '+notes:'','','Solicito confirmar disponibilidad, precios, costo de envío (si corresponde) y tiempo estimado. Este mensaje es una solicitud, no una compra confirmada.'].filter(Boolean).join('\n');
-    if(window.AndroidBridge&&typeof window.AndroidBridge.shareText==='function')window.AndroidBridge.shareText(message);
-    else if(navigator.share)navigator.share({title:'Pedido Café Zodíaco',text:message}).catch(()=>{});
-    else window.open('https://wa.me/?text='+encodeURIComponent(message),'_blank');
+    if(window.AndroidBridge&&typeof window.AndroidBridge.openWhatsApp==='function')window.AndroidBridge.openWhatsApp(message);
+    else window.location.href='https://wa.me/'+WHATSAPP_NUMBER+'?text='+encodeURIComponent(message);
   });
   renderTabs();renderProducts();renderCart();
 })();
