@@ -26,6 +26,10 @@ for html in root.glob("*.html"):
             check = subprocess.run(["node", "--check", tmp.name], capture_output=True, text=True)
             if check.returncode:
                 errors.append(f"{html.name} script {i}: {check.stderr[-500:]}")
+for js in root.glob("*.js"):
+    check = subprocess.run(["node", "--check", str(js)], capture_output=True, text=True)
+    if check.returncode:
+        errors.append(f"{js.name}: {check.stderr[-500:]}")
 if errors:
     raise SystemExit("\n".join(errors))
 print(f"Validated {len(list(root.glob('*.html')))} HTML screens and 12 chapters")
