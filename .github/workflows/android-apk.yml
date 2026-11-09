@@ -1,4 +1,4 @@
-name: Build SPINMANÍA APK
+name: Build Café Zodíaco APK
 
 on:
   workflow_dispatch:
@@ -44,7 +44,7 @@ jobs:
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
-          name: cafe-zodiaco-2.0.0-apk
+          name: cafe-zodiaco-2.1.0-apk
           path: app/build/outputs/apk/debug/app-debug.apk
           if-no-files-found: error
       - name: Install and launch on Android 14 emulator
